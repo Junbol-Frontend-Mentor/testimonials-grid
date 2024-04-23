@@ -1,0 +1,202 @@
+// Importing Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+//-----COLOR SETTINGS ---------------------------------------
+
+// Defining color variables
+$colors: (
+  'red': hsl(0, 78%, 62%),
+  'turquoise': hsl(180, 62%, 55%),
+  'orange': hsl(34, 97%, 64%),
+  'blue': hsl(212, 86%, 64%),
+  'dark-blue-gray': hsl(234, 12%, 34%),
+  'light-blue-gray': hsl(229, 6%, 66%),
+  'white': hsl(0, 0%, 100%),
+  'black': hsl(0, 0%, 0%),
+);
+
+// Adding a function to get color from the map
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+//------TYPOGRAPHY SETTINGS ---------------------------------
+
+//Mixing for Typography
+// Typography Mixin
+@mixin typography() {
+  h1 {
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 1.7rem;
+    margin-top: -10px; // This pulls the h1 up towards any element above it
+    margin-bottom: 1rem;
+    color: color('dark-blue-gray'); // Apply the primary text color for headers
+    // background-color: bisque; // Background color for visibility
+  }
+
+  h2 {
+    font-family: 'Poppins', serif;
+    font-weight: 200;
+    font-size: 1.55em;
+
+    margin-bottom: 0; // No bottom margin to touch h1
+    letter-spacing: 0.05em; // Unified letter spacing
+    color: color('light-blue-gray'); // Specific color for h2
+    // background-color: aqua;
+  }
+
+  h3 {
+    font-family: 'Poppins', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: color('dark-blue-gray'); // Assume default color unless specified
+  }
+
+  p {
+    font-family: 'Poppins', serif;
+    font-size: 1rem;
+    color: color('light-blue-gray'); // Lighter text color for paragraphs
+  }
+}
+
+// Typography and detailed styling for text elements
+@include typography();
+
+// Universal reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+//------GENERAL SETTINGS -------------------------------
+
+// Base styles
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: color('white');
+}
+
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 1000px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: color('white');
+}
+
+.heading {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  /* background-color:aquamarine; */
+  margin-bottom: 2rem;
+}
+
+// gridContainer for cards
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+// Card design with nested modifier classes
+.card {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 15px;
+  padding: 1.5rem;
+  background-color: color('white');
+  margin-bottom: 2rem;
+  box-shadow: 0 0 10px color('light-blue-gray');
+
+  &.topBorderSupervisor {
+    border-top: 0.5rem solid color('turquoise');
+  }
+  &.topBorderTeamBuilder {
+    border-top: 0.5rem solid color('red');
+  }
+  &.topBorderKarma {
+    border-top: 0.5rem solid color('orange');
+  }
+  &.topBorderCalculator {
+    border-top: 0.5rem solid color('blue');
+  }
+
+  figure {
+    margin-bottom: 1rem;
+  }
+
+  .icon {
+    display: flex;
+    justify-content: right;
+  }
+}
+
+//------------ Media Queries for Desktop-----------------------------
+
+// Media Queries for Desktop
+@media (min-width: 450px) {
+  .gridContainer {
+    grid-template-columns: 1fr 1fr 1fr; // Define three columns
+    grid-template-rows: auto auto; // Define two rows
+    align-items: start; // Align items to the start of their grid area
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.7em;
+  }
+  .card {
+    // Supervisor card takes the first column and spans two rows
+    &:nth-child(1) {
+      grid-column: 1;
+      align-self: center;
+      grid-row: span 2; // Spans two rows
+    }
+
+    // Team Builder card takes the second column, first row
+    &:nth-child(2) {
+      grid-column: 2;
+      grid-row: 1; // First row of the second column
+    }
+
+    // Karma card takes the second column, second row
+    &:nth-child(3) {
+      grid-column: 2;
+      grid-row: 2; // Second row of the second column
+    }
+
+    // Calculator card takes the third column and spans two rows
+    &:nth-child(4) {
+      grid-column: 3;
+      align-self: center;
+      grid-row: span 2; // Spans two rows
+    }
+  }
+}
