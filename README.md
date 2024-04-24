@@ -25,8 +25,8 @@ This is a solution to the [Testimonials grid section challenge on Frontend Mento
 
 ### Links
 
-- Solution URL: (https://github.com/Junbol-Frontend-Mentor/four-card-feature-section)
-- Live Site URL: (https://junbol-frontend-mentor.github.io/four-card-feature-section/)
+- Solution URL: (https://github.com/Junbol-Frontend-Mentor/testimonials-grid)
+- Live Site URL: (https://junbol-frontend-mentor.github.io/testimonials-grid/)
 
 ## My process
 
