@@ -1,63 +1,60 @@
 // Importing Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-//-----COLOR SETTINGS ---------------------------------------
+//-----COLOR SETTINGS ---------------------------------
 
 // Defining color variables
 $colors: (
-  'red': hsl(0, 78%, 62%),
-  'turquoise': hsl(180, 62%, 55%),
-  'orange': hsl(34, 97%, 64%),
-  'blue': hsl(212, 86%, 64%),
-  'dark-blue-gray': hsl(234, 12%, 34%),
-  'light-blue-gray': hsl(229, 6%, 66%),
+  //------Primary:
+  'moderate-violet': hsl(263, 76%, 64%),
+  'light-violet': hsl(263, 71%, 79%),
+  'dark-grayish-blue': hsl(217, 19%, 35%),
+  'dark-blackish-blue': hsl(212, 86%, 64%),
+  'dark-blue-gray': hsl(219, 29%, 14%),
   'white': hsl(0, 0%, 100%),
   'black': hsl(0, 0%, 0%),
+  //-------Secondary:
+  //----Neutral:color(
+  'light-gray': hsl(0, 0%, 81%),
+  'light-grayish-blue': hsl(210, 46%, 95%)
 );
-
 // Adding a function to get color from the map
 @function color($color-name) {
   @return map-get($colors, $color-name);
 }
 
-//------TYPOGRAPHY SETTINGS ---------------------------------
+//------TYPOGRAPHY SETTINGS ----------------------------
 
 //Mixing for Typography
 // Typography Mixin
 @mixin typography() {
-  h1 {
-    font-family: 'Poppins', serif;
-    font-weight: 700;
-    font-size: 1.7rem;
-    margin-top: -10px; // This pulls the h1 up towards any element above it
-    margin-bottom: 1rem;
-    color: color('dark-blue-gray'); // Apply the primary text color for headers
-    // background-color: bisque; // Background color for visibility
-  }
+  // h1 {
+  //   font-family: 'Barlow Semi Condensed', sans-serif;
+  //   font-weight: 600;
+  //   font-size: 0.2rem;
+  //   margin-top: 0px; //
+  //   margin-bottom: 1rem;
+  //   color: color('white');
+  //   color: color('white'); // Apply the primary text color for headers
+  // }
 
-  h2 {
-    font-family: 'Poppins', serif;
-    font-weight: 200;
-    font-size: 1.55em;
+  // h3 {
+  //   font-family: 'Barlow Semi Condensed', sans-serif;
+  //   font-weight: 500;
+  //   font-size: 0.2rem;
+  //   margin-bottom: 2rem; // No bottom margin to touch h1
+  //   letter-spacing: 0em; // Unified letter spacing
+  //   color: color('white'); // Specific color for h2
+  //   // background-color: aqua;
+  // }
 
-    margin-bottom: 0; // No bottom margin to touch h1
-    letter-spacing: 0.05em; // Unified letter spacing
-    color: color('light-blue-gray'); // Specific color for h2
-    // background-color: aqua;
-  }
-
-  h3 {
-    font-family: 'Poppins', serif;
-    font-weight: 600;
-    font-size: 1.5rem;
-    color: color('dark-blue-gray'); // Assume default color unless specified
-  }
-
-  p {
-    font-family: 'Poppins', serif;
-    font-size: 1rem;
-    color: color('light-blue-gray'); // Lighter text color for paragraphs
-  }
+  // p {
+  //   font-family: 'Barlow Semi Condensed', sans-serif;
+  //   font-size: 2rem;
+  //   color: color('light-violet');
+  //   font-weight: 500;
+  //   color: color('light-blue-gray'); // Lighter text color for paragraphs
+  // }
 }
 
 // Typography and detailed styling for text elements
@@ -80,36 +77,25 @@ body {
   margin: 0;
   padding: 0;
   background-color: color('white');
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 main {
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
   padding: 1rem;
 }
 
-.sectionContainer {
+.container {
   display: flex;
   flex-direction: column;
   width: 100%;
   min-height: 1000px;
-  justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
-  padding: 1rem;
   background-color: color('white');
-}
-
-.heading {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  /* background-color:aquamarine; */
-  margin-bottom: 2rem;
+  // background-color: chartreuse;
 }
 
 // gridContainer for cards
@@ -122,43 +108,80 @@ main {
 // Card design with nested modifier classes
 .card {
   width: 100%;
-  height: 300px;
+  height: 700px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   border-radius: 15px;
-  padding: 1.5rem;
-  background-color: color('white');
+  background-color: color('moderate-violet');
   margin-bottom: 2rem;
-  box-shadow: 0 0 10px color('light-blue-gray');
+  // z-index: 1;
+  // box-shadow: 0 0 10px color('light-blue-gray');
 
-  &.topBorderSupervisor {
-    border-top: 0.5rem solid color('turquoise');
-  }
-  &.topBorderTeamBuilder {
-    border-top: 0.5rem solid color('red');
-  }
-  &.topBorderKarma {
-    border-top: 0.5rem solid color('orange');
-  }
-  &.topBorderCalculator {
-    border-top: 0.5rem solid color('blue');
-  }
-
-  figure {
-    margin-bottom: 1rem;
-  }
-
-  .icon {
+  .author {
+    height: 4rem;
     display: flex;
-    justify-content: right;
+    align-items: center;
+    margin-right: 2.5rem;
+    margin-top: 1.5rem;
+    margin-left: 2rem;
+    // background-color: aqua;
+  }
+
+  .name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: color('white');
+  }
+
+  .profession {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: color('light-violet');
+  }
+
+  .quote {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: color('white');
+    padding: 2rem 0rem 0rem 2rem;
+    z-index: 3;
+    // background-color: coral;
+  }
+
+  .paragraph {
+    ffont-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 1.2rem;
+    color: color('light-violet');
+    font-weight: 500;
+    padding: 2rem;
+    line-height: 1.7rem;
+    color: color('light-blue-gray');
+  }
+
+  .photo {
+    border-radius: 50%;
+    width: 3.5rem;
+    border: 4px solid color('light-violet');
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+    background-color: brown;
+  }
+
+  .quoteSymbol {
+    display: flex;
+    position: absolute;
+    margin-left: 13rem;
+    width: 1rem;
+    height: 10rem;
+    transform: scaleX(0.8); /* Stretching horizontally */
+    z-index: 2;
   }
 }
 
-//------------ Media Queries for Desktop-----------------------------
-
+//------------ Media Queries for Desktop-----------------------
+//-------
 // Media Queries for Desktop
-@media (min-width: 450px) {
+@media (min-width: 375px) {
   .gridContainer {
     grid-template-columns: 1fr 1fr 1fr; // Define three columns
     grid-template-rows: auto auto; // Define two rows
