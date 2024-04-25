@@ -1,64 +1,7 @@
 // Importing Google Fonts
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-//-----COLOR SETTINGS ---------------------------------
-
-// Defining color variables
-$colors: (
-  //------Primary:
-  'moderate-violet': hsl(263, 76%, 64%),
-  'light-violet': hsl(263, 71%, 79%),
-  'dark-grayish-blue': hsl(217, 19%, 35%),
-  'dark-blackish-blue': hsl(212, 86%, 64%),
-  'dark-blue-gray': hsl(219, 29%, 14%),
-  'white': hsl(0, 0%, 100%),
-  'black': hsl(0, 0%, 0%),
-  //-------Secondary:
-  //----Neutral:color(
-  'light-gray': hsl(0, 0%, 81%),
-  'light-grayish-blue': hsl(210, 46%, 95%)
-);
-// Adding a function to get color from the map
-@function color($color-name) {
-  @return map-get($colors, $color-name);
-}
-
-//------TYPOGRAPHY SETTINGS ----------------------------
-
-//Mixing for Typography
-// Typography Mixin
-@mixin typography() {
-  // h1 {
-  //   font-family: 'Barlow Semi Condensed', sans-serif;
-  //   font-weight: 600;
-  //   font-size: 0.2rem;
-  //   margin-top: 0px; //
-  //   margin-bottom: 1rem;
-  //   color: color('white');
-  //   color: color('white'); // Apply the primary text color for headers
-  // }
-
-  // h3 {
-  //   font-family: 'Barlow Semi Condensed', sans-serif;
-  //   font-weight: 500;
-  //   font-size: 0.2rem;
-  //   margin-bottom: 2rem; // No bottom margin to touch h1
-  //   letter-spacing: 0em; // Unified letter spacing
-  //   color: color('white'); // Specific color for h2
-  //   // background-color: aqua;
-  // }
-
-  // p {
-  //   font-family: 'Barlow Semi Condensed', sans-serif;
-  //   font-size: 2rem;
-  //   color: color('light-violet');
-  //   font-weight: 500;
-  //   color: color('light-blue-gray'); // Lighter text color for paragraphs
-  // }
-}
-
-// Typography and detailed styling for text elements
-@include typography();
+//------GENERAL SETTINGS -------------------------------
 
 // Universal reset
 * {
@@ -67,159 +10,285 @@ $colors: (
   box-sizing: border-box;
 }
 
-//------GENERAL SETTINGS -------------------------------
-
 // Base styles
 body {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: color('white');
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  min-height: 100vh;
+  background-color: color('light-grayish-blue');
 }
 
 main {
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0rem;
 }
 
+// Container styles for mobiles
 .container {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 1000px;
-  align-items: center;
   margin-bottom: 2rem;
-  background-color: color('white');
-  // background-color: chartreuse;
+  padding-top: 1rem;
+  align-items: center;
+  padding: 20px;
+  // background-color: aqua;
 }
 
-// gridContainer for cards
-.gridContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+// Define color variables
+$colors: (
+  'moderate-violet': hsl(263, 76%, 64%),
+  'light-violet': hsl(263, 71%, 79%),
+  'dark-grayish-blue': hsl(217, 42%, 45%),
+  'dark-blue-gray': hsl(219, 29%, 14%),
+  'white': hsl(0, 0%, 100%),
+  'black': hsl(0, 0%, 0%),
+  'light-gray': hsl(0, 0%, 81%),
+  'light-grayish-blue': hsl(211, 25%, 67%),
+);
+
+// Function to retrieve colors
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+// Typography Mixin with parameters
+@mixin typography($weight, $size, $line-height, $color) {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+  color: $color;
 }
 
-// Card design with nested modifier classes
+// Card styling with nested classes for author section , colors and typography
 .card {
   width: 100%;
-  height: 700px;
   display: flex;
   flex-direction: column;
+  position: relative; // This allows for absolute positioning inside
   border-radius: 15px;
-  background-color: color('moderate-violet');
+  padding: 2rem 2rem 2rem 2rem;
   margin-bottom: 2rem;
-  // z-index: 1;
-  // box-shadow: 0 0 10px color('light-blue-gray');
+  z-index: 0;
+  transition: transform 0.5s;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0 0 0 / 40%);
 
-  .author {
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    margin-right: 2.5rem;
-    margin-top: 1.5rem;
-    margin-left: 2rem;
-    // background-color: aqua;
+  &:hover {
+    // Correct hover syntax using &
+    transform: scale(1.05); // Scales the card by 5% on hover
   }
 
-  .name {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: color('white');
-  }
-
-  .profession {
-    font-size: 0.7rem;
-    font-weight: 500;
-    color: color('light-violet');
-  }
-
-  .quote {
-    font-size: 1.7rem;
-    font-weight: 600;
-    color: color('white');
-    padding: 2rem 0rem 0rem 2rem;
-    z-index: 3;
-    // background-color: coral;
-  }
-
-  .paragraph {
-    ffont-family: 'Barlow Semi Condensed', sans-serif;
-    font-size: 1.2rem;
-    color: color('light-violet');
-    font-weight: 500;
-    padding: 2rem;
-    line-height: 1.7rem;
-    color: color('light-blue-gray');
-  }
-
-  .photo {
-    border-radius: 50%;
+  // Define common styles for .photo under .author to ensure specificity
+  .author .photo {
     width: 3.5rem;
-    border: 4px solid color('light-violet');
-    margin-right: 1rem;
-    margin-top: 0.5rem;
-    background-color: brown;
+    height: 3.5rem;
+    border-radius: 50%; // Ensures the image is round
+    margin-right: 0.5rem;
   }
 
-  .quoteSymbol {
-    display: flex;
+  // img {
+  //   display: block; // Remove any extra space below the image
+  //   // Set the width and height as needed
+  // }
+
+  &.quoteSymbol {
     position: absolute;
-    margin-left: 13rem;
-    width: 1rem;
-    height: 10rem;
-    transform: scaleX(0.8); /* Stretching horizontally */
-    z-index: 2;
+    width: 200px;
+    margin-top: 0px; // Align to the top edge of the card
+    margin-left: 205px; // 10px from the right edge
+    transform: scaleY(1rem), scaleX(0.2); // Move it above the card
+    z-index: 1; // Under the text
+    // background-color: darkgreen;
+  }
+
+  &.quote {
+    // position: relative;
+    margin-top: 10px;
+    z-index: 3;
+    margin-bottom: 1rem;
+  }
+
+  &.paragraph {
+    margin-bottom: 1rem;
+    z-index: 3;
+  }
+
+  &.bgDaniel {
+    background-image: url('../assets/images/bg-pattern-quotation+dark_purple.svg');
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: 0%;
+    background-size: 50%; // Width and height of the background image
+    background-color: color('moderate-violet');
+    .name,
+    .quote {
+      @include typography(600, '1.2rem', 1.5, color('white'));
+    }
+    .profession,
+    .paragraph {
+      @include typography(500, '1rem', 1.5, color('light-violet'));
+    }
+    .photo {
+      border: 4px solid color('light-violet');
+    }
+  }
+
+  &.bgJonathan {
+    background-color: color('dark-grayish-blue');
+    background-image: url('../assets/images/bg-pattern-quotation+dark_gray.svg');
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: 0%;
+    background-size: 50%; // Width and height of the background image
+    .name,
+    .quote {
+      @include typography(600, '1.2rem', 1.5, color('white'));
+    }
+    .profession,
+    .paragraph {
+      @include typography(500, '1rem', 1.5, color('light-grayish-blue'));
+    }
+    .photo {
+      border: 4px solid color('light-grayish-blue');
+    }
+  }
+
+  &.bgJeanette {
+    background-color: color('white');
+    background-image: url('../assets/images/bg-pattern-quotation+lighter_gray.svg');
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: 0%;
+    background-size: 50%; // Width and height of the background image
+    .name,
+    .quote {
+      @include typography(600, '1.2rem', 1.5, color('dark-grayish-blue'));
+    }
+    .profession,
+    .paragraph {
+      @include typography(500, '1rem', 1.5, color('light-grayish-blue'));
+    }
+    .photo {
+      border: 4px solid color('light-grayish-blue');
+    }
+  }
+
+  &.bgPatrick {
+    background-color: color('dark-blue-gray');
+    background-image: url('../assets/images/bg-pattern-quotation+blue_purple.svg');
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: 0%;
+    background-size: 50%; // Width and height of the background image
+    .name,
+    .quote {
+      @include typography(600, '1.2rem', 1.5, color('white'));
+    }
+    .profession,
+    .paragraph {
+      @include typography(500, '1rem', 1.5, color('light-grayish-blue'));
+    }
+    .photo {
+      border: 4px solid color('light-violet');
+    }
+  }
+
+  &.bgKira {
+    background-color: color('white');
+    background-image: url('../assets/images/bg-pattern-quotation+lighter_gray.svg');
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: 0%;
+    background-size: 50%; // Width and height of the background image
+    .name,
+    .quote {
+      @include typography(600, '1.2rem', 1.5, color('dark-grayish-blue'));
+    }
+    .profession,
+    .paragraph {
+      @include typography(500, '1rem', 1.5, color('light-grayish-blue'));
+    }
+    .photo {
+      border: 4px solid color('light-grayish-blue');
+    }
+  }
+
+  &.bgJonathan {
+    background-color: color('dark-grayish-blue');
+    .name,
+    .quote {
+      @include typography(600, '1.2rem', 1.5, color('white'));
+    }
+    .profession,
+    .paragraph {
+      @include typography(500, '1rem', 1.5, color('light-grayish-blue'));
+    }
   }
 }
 
-//------------ Media Queries for Desktop-----------------------
-//-------
-// Media Queries for Desktop
-@media (min-width: 375px) {
-  .gridContainer {
-    grid-template-columns: 1fr 1fr 1fr; // Define three columns
-    grid-template-rows: auto auto; // Define two rows
-    align-items: start; // Align items to the start of their grid area
-  }
+.attribution {
+  text-align: center;
+  margin-bottom: 2rem; /* Keeps the footer at the bottom but only after all other content */
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+  text-decoration: none;
+}
 
-  h1 {
-    font-size: 3rem;
-  }
-
-  h2 {
-    font-size: 2.7em;
+@media (min-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); // Creates 4 equal columns
+    grid-gap: 20px; // Adjusting the gap between grid items
+    align-items: start; // Aligns items to the start of their cell
+    grid-auto-rows: minmax(250px, auto); // Ensures that rows are at least 250px tall
+    grid-gap: 20px; // Maintains a fixed gap
+    width: 80%;
+    padding: 20px;
+    margin-top: 30px;
+    align-items: stretch; // Stretches items to fill the grid row height
   }
   .card {
-    // Supervisor card takes the first column and spans two rows
-    &:nth-child(1) {
-      grid-column: 1;
-      align-self: center;
-      grid-row: span 2; // Spans two rows
-    }
+    min-height: 300px; // Sets a minimum height and allows expansion based on content
+    margin: 0rem;
+  }
+  // Card 1 (Daniel) takes the first row and spans two columns
+  .card:nth-child(1) {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+  }
 
-    // Team Builder card takes the second column, first row
-    &:nth-child(2) {
-      grid-column: 2;
-      grid-row: 1; // First row of the second column
-    }
+  // Card 2 (Jonathan) is placed in the first row, third column
+  .card:nth-child(2) {
+    grid-column: 3;
+    grid-row: 1;
+  }
 
-    // Karma card takes the second column, second row
-    &:nth-child(3) {
-      grid-column: 2;
-      grid-row: 2; // Second row of the second column
-    }
+  // Card 3 (Jeanette) takes the second row, first column
+  .card:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+  }
 
-    // Calculator card takes the third column and spans two rows
-    &:nth-child(4) {
-      grid-column: 3;
-      align-self: center;
-      grid-row: span 2; // Spans two rows
-    }
+  // Card 4 (Patrick) starts at the second column and spans two columns in the second row
+  .card:nth-child(4) {
+    grid-column: 2 / span 2;
+    grid-row: 2;
+  }
+
+  // Card 5 (Kira) occupies the entire fourth column, and should align with Card 2's top
+  .card:nth-child(5) {
+    grid-column: 4;
+    grid-row: 1 / span 2;
   }
 }
