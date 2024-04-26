@@ -10,6 +10,31 @@
   box-sizing: border-box;
 }
 
+// Define color variables
+$colors: (
+  'moderate-violet': hsl(263, 76%, 64%),
+  'light-violet': hsl(263, 71%, 79%),
+  'dark-grayish-blue': hsl(217, 42%, 45%),
+  'dark-blue-gray': hsl(219, 29%, 14%),
+  'white': hsl(0, 0%, 100%),
+  'black': hsl(0, 0%, 0%),
+  'light-gray': hsl(0, 0%, 81%),
+  'light-grayish-blue': hsl(211, 42%, 84%),
+);
+
+// Function to retrieve colors
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+// Typography Mixin with parameters
+@mixin typography($weight, $size, $line-height, $color) {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+  color: $color;
+}
+
 // Base styles
 body {
   display: flex;
@@ -21,6 +46,7 @@ body {
   padding: 0;
   min-height: 100vh;
   background-color: color('light-grayish-blue');
+  //background-color: aqua; // for testing
 }
 
 main {
@@ -42,31 +68,6 @@ main {
   align-items: center;
   padding: 20px;
   // background-color: aqua;
-}
-
-// Define color variables
-$colors: (
-  'moderate-violet': hsl(263, 76%, 64%),
-  'light-violet': hsl(263, 71%, 79%),
-  'dark-grayish-blue': hsl(217, 42%, 45%),
-  'dark-blue-gray': hsl(219, 29%, 14%),
-  'white': hsl(0, 0%, 100%),
-  'black': hsl(0, 0%, 0%),
-  'light-gray': hsl(0, 0%, 81%),
-  'light-grayish-blue': hsl(211, 25%, 67%),
-);
-
-// Function to retrieve colors
-@function color($color-name) {
-  @return map-get($colors, $color-name);
-}
-// Typography Mixin with parameters
-@mixin typography($weight, $size, $line-height, $color) {
-  font-family: 'Barlow Semi Condensed', sans-serif;
-  font-weight: $weight;
-  font-size: $size;
-  line-height: $line-height;
-  color: $color;
 }
 
 // Card styling with nested classes for author section , colors and typography
