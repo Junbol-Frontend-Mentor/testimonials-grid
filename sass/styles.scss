@@ -3,12 +3,13 @@
 
 //------GENERAL SETTINGS -------------------------------
 
-// Universal reset
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+// Universal reset also explicitly to all pseudo-elements 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
+
 
 // Define color variables
 $colors: (
