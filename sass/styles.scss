@@ -53,7 +53,7 @@ body {
 }
 
 main {
-  flex: 1 0 auto;
+  flex: 1 0 auto;/*shorthand for three properties: flex-grow, flex-shrink, and flex-basis. This especially usefull to keep the footer always bellow the content but read the NOTE bellow to prevent issues */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,12 +67,12 @@ main {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 0 auto; /* This centers the container horizontally */
+  margin: 0 auto; /* This was the solution to the BIG 🐞, it centers the container horizontally by adding equal margins to the left and right. */
   margin-bottom: 2rem;
   padding-top: 1rem;
   align-items: center;
   padding: 20px;
-  // background-color: aqua;
+  background-color: aqua;
 }
 
 // Card styling with nested classes for author section , colors and typography
@@ -232,7 +232,7 @@ main {
 
 .attribution {
   text-align: center;
-  margin-bottom: 2rem; /* Keeps the footer at the bottom but only after all other content */
+  margin-bottom: 3rem; /* Keeps the footer at the bottom but only after all other content */
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
@@ -288,3 +288,18 @@ main {
     grid-row: 1 / span 2;
   }
 }
+
+/* ============= NOTES  ============== */
+/* The flex: 1 0 auto; declaration is not a one-size-fits-all solution and should not be applied universally to the <main> element as a best practice. It's a tool that should be used to achieve specific layout goals depending on the design requirements.
+
+✅ Here are some considerations for when to use flex: 1 0 auto; on the <main> element:
+
+Sticky Footer: If your design requires that the footer stays at the bottom of the viewport even when the content is short, then using flex: 1 0 auto; on <main> is a common solution. It allows <main> to expand and fill the available space, pushing the footer to the bottom.
+Full-Height Sections: In single-page applications or designs where sections of the page should fill the viewport height, flex: 1 0 auto; helps to ensure that <main> covers the full height of the viewport if the content is not enough.
+Dynamic Content: When the amount of content is dynamic and can vary greatly, flex: 1 0 auto; can help maintain a consistent layout across different states.
+
+However, 🚩there are scenarios where you might not want to use flex: 1 0 auto;:
+
+Content-Driven Layout: If the height of the <main> content should naturally dictate the layout without stretching, you should not force it to expand with flex-grow.
+Scrolling Content: If the <main> content is expected to scroll internally while keeping the header and footer fixed, a flex-grow of 1 could be undesirable.
+Nested Flex Containers: If <main> is a flex container with its own flex items and a specific design, the flex-grow property might interfere with the intended layout. */
