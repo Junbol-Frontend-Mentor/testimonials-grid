@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Flexbox Example</title>
+    <style>
+        .container {
+            display: flex;      /* Enables flexbox */
+            flex-wrap: wrap;    /* Allows items to wrap onto the next line */
+            width: 50vw;        /* Container width is 50% of the viewport width */
+            border: 2px solid black; /* Adds a border for visual distinction */
+        }
+        .box {
+            width: 100px;       /* Each box has a fixed width */
+            height: 100px;      /* Each box has a fixed height */
+            margin: 10px;       /* Adds space around boxes */
+            background-color: coral; /* Adds background color to boxes */
+            display: flex;      /* Flex applied to center the content */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+        <div class="box">Box 4</div>
+        <div class="box">Box 5</div>
+    </div>
+</body>
+</html>
