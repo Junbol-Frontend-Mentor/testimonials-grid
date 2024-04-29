@@ -3,15 +3,14 @@
 
 //------GENERAL SETTINGS -------------------------------
 
-// Universal reset also explicitly to all pseudo-elements 
+// Universal reset also explicitly to all pseudo-elements
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
 
 // Define color variables
 $colors: (
@@ -53,7 +52,7 @@ body {
 }
 
 main {
-  flex: 1 0 auto;/*shorthand for three properties: flex-grow, flex-shrink, and flex-basis. This especially usefull to keep the footer always bellow the content but read the NOTE bellow to prevent issues */
+  flex: 1 0 auto; /*shorthand for three properties: flex-grow, flex-shrink, and flex-basis. This especially usefull to keep the footer always bellow the content but read the NOTE bellow to prevent issues */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,7 +71,7 @@ main {
   padding-top: 1rem;
   align-items: center;
   padding: 20px;
-  background-color: aqua;
+  // background-color: aqua;
 }
 
 // Card styling with nested classes for author section , colors and typography
@@ -240,8 +239,6 @@ main {
 }
 
 @media (min-width: 768px) {
-
-
   .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); // Creates 4 equal columns
