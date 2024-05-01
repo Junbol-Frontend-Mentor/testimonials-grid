@@ -242,7 +242,6 @@ main {
   .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); // Creates 4 equal columns
-    grid-gap: 20px; // Adjusting the gap between grid items
     align-items: start; // Aligns items to the start of their cell
     grid-auto-rows: minmax(250px, auto); // Ensures that rows are at least 250px tall
     grid-gap: 20px; // Maintains a fixed gap
