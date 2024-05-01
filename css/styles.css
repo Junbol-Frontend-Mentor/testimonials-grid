@@ -229,7 +229,6 @@ main {
   .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
     align-items: start;
     grid-auto-rows: minmax(250px, auto);
     grid-gap: 20px;
