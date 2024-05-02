@@ -137,11 +137,11 @@ main {
     background-color: color('moderate-violet');
     .name,
     .quote {
-      @include typography(600, '1.2rem', 1.5, color('white'));
+      @include typography(600, 1.2rem, 1.5, color('white'));
     }
     .profession,
     .paragraph {
-      @include typography(500, '1rem', 1.5, color('light-violet'));
+      @include typography(500, 1rem, 1.5, color('light-violet'));
     }
     .photo {
       border: 4px solid color('light-violet');
@@ -157,11 +157,11 @@ main {
     background-size: 50%; // Width and height of the background image
     .name,
     .quote {
-      @include typography(600, '1.2rem', 1.5, color('white'));
+      @include typography(600, 1.2rem, 1.5, color('white'));
     }
     .profession,
     .paragraph {
-      @include typography(500, '1rem', 1.5, color('light-grayish-blue'));
+      @include typography(500, 1rem, 1.5, color('light-grayish-blue'));
     }
     .photo {
       border: 4px solid color('light-grayish-blue');
@@ -177,11 +177,11 @@ main {
     background-size: 50%; // Width and height of the background image
     .name,
     .quote {
-      @include typography(600, '1.2rem', 1.5, color('dark-grayish-blue'));
+      @include typography(600, 1.2rem, 1.5, color('dark-grayish-blue'));
     }
     .profession,
     .paragraph {
-      @include typography(500, '1rem', 1.5, color('light-grayish-blue'));
+      @include typography(500, 1rem, 1.5, color('light-grayish-blue'));
     }
     .photo {
       border: 4px solid color('light-grayish-blue');
@@ -197,11 +197,11 @@ main {
     background-size: 50%; // Width and height of the background image
     .name,
     .quote {
-      @include typography(600, '1.2rem', 1.5, color('white'));
+      @include typography(600, 1.2rem, 1.5, color('white'));
     }
     .profession,
     .paragraph {
-      @include typography(500, '1rem', 1.5, color('light-grayish-blue'));
+      @include typography(500, 1rem, 1.5, color('light-grayish-blue'));
     }
     .photo {
       border: 4px solid color('light-violet');
@@ -217,11 +217,11 @@ main {
     background-size: 50%; // Width and height of the background image
     .name,
     .quote {
-      @include typography(600, '1.2rem', 1.5, color('dark-grayish-blue'));
+      @include typography(600, 1.2rem, 1.5, color('dark-grayish-blue'));
     }
     .profession,
     .paragraph {
-      @include typography(500, '1rem', 1.5, color('light-grayish-blue'));
+      @include typography(500, 1rem, 1.5, color('light-grayish-blue'));
     }
     .photo {
       border: 4px solid color('light-grayish-blue');
